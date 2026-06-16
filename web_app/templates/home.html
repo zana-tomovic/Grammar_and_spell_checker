@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grammar and spell checker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="checker">
+    <p id="title"><b>Grammar and spell checker</b></p>
+
+    <form action='/text' method='post'> 
+      <textarea name="text" rows="4" cols="50" placeholder="Enter text"></textarea>
+      <button type="submit"> Enter </button>
+    </form>
+    <div>
+      <div>
+        {% if err %}
+          <p class="err">{{err}}</p>
+        {% endif %}
+      </div>
+      <div>
+        {% if corrected_text and mistakes %} 
+          <p>Corrected text: {{corrected_text}} </p>
+          <p>Mistakes: {{mistakes}} </p>
+        {% endif %}
+      </div>
+    </div>
+
+    <form action="/file" method="post" enctype="multipart/form-data"> 
+      <div class="file">
+        <label for="file"> Upload file: </label>
+        <input type="file" name="file" id="file_selector" class="form-control" accept=".txt, .docx, .pdf">
+        <p id="hint">Podržani formati: <strong>.txt</strong>, <strong>.docx</strong>, <strong>.pdf</strong></p>
+      </div>
+      <button type="submit"> Enter </button>
+    </form>
+    <div>
+      <div>
+        {% if errFile %}
+          <p class="errFile">{{errFile}}</p>
+        {% endif %}
+      </div>
+      <div>
+        {% if corrected_text_file and mistakes_file %} 
+          <p>Corrected text: {{corrected_text_file}} </p>
+          <p>Mistakes: {{mistakes_file}} </p>
+          <a href="{{url_for('download', filename=corrected_file)}}" class="download-link">
+            Click here to download {{corrected_file}}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>

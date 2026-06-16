@@ -1,0 +1,80 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
+* {
+  font-family: 'Roboto', sans-serif;
+} 
+
+body {
+    margin: 50px;
+    background: rgba(0, 0, 0, .2); 
+}
+
+.checker {
+    font-size: 14px;
+    background: #ffff;
+    border: 0 none;
+    border-radius: 4px;
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.4);
+    padding: 20px 25px;
+    width: 80%;
+    margin: 0 10%;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;     
+}
+
+#title {
+    font-size: 20px;
+}
+
+.checker div {
+    align-items: start;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: fit-content;
+}
+
+textarea {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 2px;
+    width: fit-content;
+    box-sizing: border-box;
+    background: #fafafa;
+    font-size: 14px;
+    display: block;
+}
+
+input {
+    padding: 5px;
+    font-size: 14px;
+}
+
+#hint {
+    font-size: 12px;
+}
+
+button {
+    width: 100px;
+    background: #444;
+    font-weight: bold;
+    font-size: 14px;
+    color: #ffff;
+    border: 0 none;
+    border-radius: 5px;
+    padding: 10px;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.err {
+    color: red;
+}
