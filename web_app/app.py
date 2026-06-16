@@ -41,8 +41,8 @@ def file():
       text = file.read().decode('utf-8')
       corrected_text, mistakes = text_checker_module.correct_text(text)
 
-      with open(output_filename, 'w', encoding='utf-8') as file:
-        file.write(str(corrected_text))
+      with open(output_filename, 'w', encoding='utf-8') as f:
+        f.write(str(corrected_text))
       
     elif filename.endswith(".docx"):
       file_bytes = io.BytesIO(file.read())
@@ -78,6 +78,9 @@ def file():
       
       pdf.multi_cell(w=0, h=10, txt=str(corrected_text))
       pdf.output(output_filename)
+      
+    else:
+      return render_template("home.html", errFile="Unsupported file type. Please upload a .txt, .docx, or .pdf file. ")
       
     return render_template("home.html", corrected_file = output_filename, corrected_text_file = corrected_text, mistakes_file = mistakes)
        
